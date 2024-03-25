@@ -8,6 +8,11 @@
         <option value="$PROJECT_DIR$/Authentification/pom.xml" />
         <option value="$PROJECT_DIR$/Eureka/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/User-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Ticket-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Payement/pom.xml" />
+        <option value="$PROJECT_DIR$/Event-service/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
