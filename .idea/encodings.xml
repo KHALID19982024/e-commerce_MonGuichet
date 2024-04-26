@@ -2,18 +2,23 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Authentification/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Catalog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Catalog/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Eureka/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Event-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Event-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Order-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Order-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Payement/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Payement/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Product-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Product-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Review/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Review/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ticket-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Ticket-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/User-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/User-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />
   </component>

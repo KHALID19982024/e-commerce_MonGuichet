@@ -13,7 +13,18 @@
         <option value="$PROJECT_DIR$/Ticket-service/pom.xml" />
         <option value="$PROJECT_DIR$/Payement/pom.xml" />
         <option value="$PROJECT_DIR$/Event-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Product-service/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Compressed/Catalog/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Compressed/Review/pom.xml" />
+        <option value="$PROJECT_DIR$/Catalog/pom.xml" />
+        <option value="$PROJECT_DIR$/Review/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$USER_HOME$/Downloads/Compressed/Catalog/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Compressed/Review/pom.xml" />
+      </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>

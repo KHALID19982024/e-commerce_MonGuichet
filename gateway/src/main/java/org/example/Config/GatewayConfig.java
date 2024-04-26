@@ -1,79 +1,116 @@
 package org.example.Config;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import lombok.AllArgsConstructor;
+import org.example.filter.JwtAuthenticationFilter;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
 @Configuration
-@RequiredArgsConstructor
-
+@AllArgsConstructor
 public class GatewayConfig {
-    public static void main(String[] args) {
-        SpringApplication.run(GatewayConfig.class, args);
-    }
-
+    private final JwtAuthenticationFilter filter;
     @Bean
     public RouteLocator myRoutes(
             final RouteLocatorBuilder builder
     ) {
         return builder.routes()
-                .route(
-                        "auth-service",
-                        r -> r.path("/api/auth/**")
-                                .uri("lb://auth-service")
+                .route("user2-microservice",r -> r.path("/api/v1/user/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://user2-microservice")
                 )
-                .route(
-                        "user-service",
-                        r -> r.path("/api/user/me/**")
-                                .filters(f -> f.rewritePath(
-                                        "/api/user/me/.*",
-                                        "/user/NotAllowed"))
-                                .uri("lb://user-service")
+                .route("security-microservice", r -> r.path("/auth/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://security-microservice"))
+
+//                .route(r -> r.path("/api/users/**")
+//                        .filters(f -> f.rewritePath(
+//                                "/api/users",
+//                                "/users/NotAllowed"))
+//                        .uri("lb://USER2-SERVICE")
+                //)
+                .route("order-microservice",r -> r.path("/api/order/**")
+                        .filters(f -> f.rewritePath(
+                                "/api/order",
+                                "/order/NotAllowed"))
+                        .uri("lb://order-microservice")
                 )
-                .route(
-                        "ticket-service",
-                        r -> r.path("/api/ticket/user/me/**")
-                                .filters(f -> f.rewritePath(
-                                        "/api/ticket/user/me/.*",
-                                        "/user/NotAllowed"))
-                                .uri("lb://ticket-service")
+                .route("order2-microservice",r -> r.path("/api/order2/**")
+                        .filters(f -> f.rewritePath(
+                                "/api/order2",
+                                "/order/NotAllowed"))
+                        .uri("lb://order2-microservice")
                 )
-                .route(
-                        "event-service-no-auth",
-                        r -> r.path("/api/event/**")
-                                .uri("lb://event-service")
+                .route("payment-microservice",r -> r.path("/api/payments/**")
+                        .filters(f -> f.rewritePath(
+                                "/api/payments",
+                                "/payments/NotAllowed"))
+                        .uri("lb://payment-microservice")
                 )
-                .route(
-                        "categories-service-no-auth",
-                        r -> r.path("/api/categories/**")
-                                .uri("lb://event-service")
+                .route("review-microservice",r -> r.path("/api/v1/review/**")
+                        .filters(f -> f.rewritePath(
+                                "/api/v1/review",
+                                "/api/v1/review/NotAllowed"))
+                        .uri("lb://review-microservice")
                 )
-                .route(
-                        "sous-categories-service-no-auth",
-                        r -> r.path("/api/categories/sous-categories/**")
-                                .uri("lb://event-service")
+                .route("catalog-microservice",r -> r.path("/api/v1/category/**")
+                        .filters(f -> f.rewritePath(
+                                "/api/v1/category",
+                                "/api/v1/review/NotAllowed"))
+                        .uri("lb://catalog-microservice")
                 )
-                .route(
-                        "order-service-auth",
-                        r -> r.path("/api/order/user/me/**")
-                                .filters(f -> f.rewritePath(
-                                        "/api/order/user/me/.*",
-                                        "/user/NotAllowed"))
-                                .uri("lb://order-service")
-                )
-                .route(
-                        "payment-service-auth",
-                        r -> r.path("/api/payment/user/me/**")
-                                .filters(f -> f.rewritePath(
-                                        "/api/payment/user/me/.*",
-                                        "/user/NotAllowed"))
-                                .uri("lb://payment-service")
-                )
+
+
+//                .route(
+//                        "ticket-service",
+//                        r -> r.path("/api/ticket/**")
+//                                .filters(f -> f.rewritePath(
+//                                        "/api/ticket/*.",
+//                                        "/user/NotAllowed"))
+//                                .uri("lb://TICKET-SERVICE")
+//                )
+//                .route(
+//                        "payment-service",
+//                        r -> r.path("/api/payments/**")
+//                                .filters(f -> f.rewritePath(
+//                                        "/api/payments/*.",
+//                                        "/user/NotAllowed"))
+//                                .uri("lb://PAYMENT-SERVICE")
+//                )
+//                .route(
+//                        "order-service",
+//                        r -> r.path("/api/order/**")
+//                                .filters(f -> f.rewritePath(
+//                                        "/api/order/*.",
+//                                        "/user/NotAllowed"))
+//                                .uri("lb://ORDER-SERVICE")
+//                )
+//                .route(
+//                        "product-categories",
+//                        r -> r.path("/api/categories/**")
+//                                .filters(f -> f.rewritePath(
+//                                        "/api/categories/*.",
+//                                        "/user/NotAllowed"))
+//                                .uri("lb://PRODUCT-SERVICE")
+//                )
+//                .route(
+//                        "product-sous-categories",
+//                        r -> r.path("/api/sous-categories/**")
+//                                .filters(f -> f.rewritePath(
+//                                        "/api/sous-categories/*.",
+//                                        "/user/NotAllowed"))
+//                                .uri("lb://PRODUCT-SERVICE")
+//                )
+//                .route(
+//                        "product-events",
+//                        r -> r.path("/api/events/**")
+//                                .filters(f -> f.rewritePath(
+//                                        "/api/events/*.",
+//                                        "/user/NotAllowed"))
+//                                .uri("lb://PRODUCT-SERVICE")
+//                )
                 .build();
 
     }
